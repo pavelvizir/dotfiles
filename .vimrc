@@ -123,3 +123,9 @@ let g:netrw_winsize = 15
 let g:netrw_liststyle = 3
 vnoremap <silent> # :s/^/# /<cr>:noh<cr>
 vnoremap <silent> ## :s/^# //<cr>:noh<cr>
+" mypy problem with finding module in venv
+" pylint requires local install
+" probably should install in venv, other packages venv --user
+" PATH=$HOME/.local/bin:$PATH
+" :call dein#recache_runtimepath()
+" pip install --user autopep8 flake8 isort yapf
