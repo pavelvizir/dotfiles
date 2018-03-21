@@ -121,3 +121,5 @@ map <C-n> :Lexplore<CR>
 :nnoremap <S-Tab> :bprevious<CR>
 let g:netrw_winsize = 15
 let g:netrw_liststyle = 3
+vnoremap <silent> # :s/^/# /<cr>:noh<cr>
+vnoremap <silent> ## :s/^# //<cr>:noh<cr>
