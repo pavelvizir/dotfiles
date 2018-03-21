@@ -21,7 +21,16 @@ if dein#load_state('/home/alvazir/.local/share/dein')
   call dein#add('vim-airline/vim-airline')
   call dein#add('davidhalter/jedi-vim')
   call dein#add('w0rp/ale')
-  call dein#add('plytophogy/vim-virtualenv')
+"  call dein#add('plytophogy/vim-virtualenv')
+"  call dein#add('scrooloose/nerdtree')
+"  call dein#add('Xuyuanp/nerdtree-git-plugin')
+  call dein#add('tpope/vim-surround')
+  call dein#add('tmhedberg/SimpylFold')
+  call dein#add('bling/vim-bufferline')
+  call dein#add('tpope/vim-vinegar')
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('tpope/vim-fugitive')
+"  call dein#add('tpope/vim-repeat')
   " You can specify revision/branch/tag.
 "  call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
 
@@ -64,14 +73,17 @@ let g:jedi#completions_enabled = 0
 " \   'python': ['pylint'],
 " \}
 let g:ale_virtualenv_dir_names = ['.venv']
-let g:ale_fixers = {'python': ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'isort', 'autopep8', 'yapf']}
+" let g:ale_fixers = {'python': ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'isort', 'autopep8', 'yapf']}
+let g:ale_fixers = {'python': ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'isort', 'autopep8']}
 " Bind F8 to fixing problems with ALE
 nmap <F8> <Plug>(ale_fix)
 
 let g:ale_python_autopep8_options = '--aggressive --aggressive'
 
-autocmd FileType python
-autocmd Filetype ruby call SetPythonIndentOptions()
+set hlsearch
+set incsearch
+
+autocmd Filetype python call SetPythonIndentOptions()
 function SetPythonIndentOptions()
 	set tabstop=4 
 	set shiftwidth=4
@@ -85,3 +97,27 @@ function SetPythonIndentOptions()
 	set listchars=tab:>-,trail:-,nbsp:_
 	set list
 endfunction
+
+"autocmd vimenter * NERDTree
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"map <C-n> :NERDTreeToggle<CR>
+""autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"
+":nnoremap <Tab> :bnext<CR>
+":nnoremap <S-Tab> :bprevious<CR>
+"let g:netrw_banner = 0
+"let g:netrw_liststyle = 3
+"let g:netrw_browse_split = 4
+"let g:netrw_altv = 1
+"let g:netrw_winsize = 25
+"augroup ProjectDrawer
+"  autocmd!
+"  autocmd VimEnter * :Vexplore
+"augroup END
+"autocmd vimenter * :Lexplore
+map <C-n> :Lexplore<CR>
+:nnoremap <Tab> :bnext<CR>
+:nnoremap <S-Tab> :bprevious<CR>
+let g:netrw_winsize = 15
+let g:netrw_liststyle = 3
