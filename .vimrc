@@ -30,6 +30,8 @@ if dein#load_state('/home/alvazir/.local/share/dein')
   call dein#add('tpope/vim-vinegar')
   call dein#add('airblade/vim-gitgutter')
   call dein#add('tpope/vim-fugitive')
+  call dein#add('mattn/emmet-vim')
+  call dein#add('fatih/vim-go')
 "  call dein#add('tpope/vim-repeat')
   " You can specify revision/branch/tag.
 "  call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
@@ -129,3 +131,22 @@ vnoremap <silent> ## :s/^# //<cr>:noh<cr>
 " PATH=$HOME/.local/bin:$PATH
 " :call dein#recache_runtimepath()
 " pip install --user autopep8 flake8 isort yapf
+autocmd FileType html,css EmmetInstall
+"----------------------------------------------
+" Language: Golang
+"----------------------------------------------
+au FileType go set noexpandtab
+au FileType go set shiftwidth=4
+au FileType go set softtabstop=4
+au FileType go set tabstop=4
+au FileType go set foldmethod=syntax
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_auto_sameids = 1
+let g:go_highlight_function_calls = 1
